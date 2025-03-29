@@ -111,14 +111,14 @@ import {motion} from "framer-motion"
     >
       <div className="container mx-auto">
         <Tabs
-        defaultvalue="experience"
-        className="flex flex-col xl:flex-row gap-[60px]"
+        defaultValue="experience"
+        className=" flex flex-col xl:flex-row gap-[60px] "
         >
-          <TabsList className="flex flex-col w-full max-w-[380px] mx-auto xl:mx-0 gap-6">
-            <TabsTrigger value="experience">Experience</TabsTrigger>
-            <TabsTrigger value="education">Education</TabsTrigger> 
-            <TabsTrigger value="skills">Skills</TabsTrigger>
-             <TabsTrigger value="about">About Me</TabsTrigger> 
+          <TabsList className="flex flex-col w-full max-w-[380px] mx-auto xl:mx-0 gap-6 ">
+            <TabsTrigger value="experience" className="hover:text-accent">Experience</TabsTrigger>
+            <TabsTrigger value="education" className="hover:text-accent">Education</TabsTrigger> 
+            <TabsTrigger value="skills" className="hover:text-accent">Skills</TabsTrigger>
+             <TabsTrigger value="about" className="hover:text-accent">About Me</TabsTrigger> 
           </TabsList>
           <div className="min-h-[70vh] w-full">
             

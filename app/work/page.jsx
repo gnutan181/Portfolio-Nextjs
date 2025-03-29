@@ -63,6 +63,9 @@ const Work = () => {
   }
   
   return ( 
+    <div className="px-3">
+
+     
   <motion.section initial={{opacity:0}} 
   animate={{ opacity : 1,
     transition: {delay : 2.4, duration : 0.4, ease :"easeIn"},}
@@ -157,7 +160,8 @@ const Work = () => {
      
         </div>
     </div>
-  </motion.section>)
+  </motion.section>
+  </div>)
 }
 
 export default Work

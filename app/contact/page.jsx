@@ -27,6 +27,8 @@ import {motion} from "framer-motion"
 
 const Contact = () => {
   return (
+    <div className="px-3">
+
    <motion.section initial={{opaccity:0}}
    animate={{
     opacity:1,
@@ -94,6 +96,7 @@ placeholder="Type your message here"
 
 </div>
    </motion.section>
+   </div>
   )
 }
 
