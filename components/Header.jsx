@@ -6,10 +6,10 @@ import MobileNav from "./MobileNav";
 const Header = async()=>{
 return (
   
-    <header className="py-5 xl:py-8 sm:py-3 text-white">
- <div className="container mx-auto flex justify-around items-center py-3">
+    <header className="py-3 sm:py-3 text-white mx-auto">
+ <div className="container flex justify-between items-center py-3">
 <Link href='/'>
-<h1 className="text-4xl mx-auto font-semibold">
+<h1 className="text-4xl font-semibold px-2 xl:px-10 ">
 Nutan<span className="text-accent">.</span>
 </h1>
 </Link>
@@ -20,7 +20,7 @@ Nutan<span className="text-accent">.</span>
 </Link>
 </div>
 {/* mobile */}
-<div className="xl:hidden">
+<div className="xl:hidden lg:hidden">
 <MobileNav />
 </div>
 

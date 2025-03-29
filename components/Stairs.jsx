@@ -9,7 +9,11 @@ const stairAnimation = {
         top :"100%",
     },
     exit :{
+<<<<<<< HEAD
         top:["100%","0%"]
+=======
+        top:["0%"]
+>>>>>>> 333c3f0 (Resolved merge conflicts)
     }
 }
 // calculate the reverse index for staggered delay 
@@ -30,7 +34,11 @@ const Stairs = () => {
 
         <motion.div key={index} variants={stairAnimation} initial="initial"
         animate="animate" exit="exit"  transition={{
+<<<<<<< HEAD
             duration:0.4,
+=======
+            duration:0.2,
+>>>>>>> 333c3f0 (Resolved merge conflicts)
             ease:'easeInOut',
             delay : reverseIndex(index)*0.1,
         }}
