@@ -27,11 +27,8 @@ import {motion} from "framer-motion"
 
 const Contact = () => {
   return (
-<<<<<<< HEAD
-=======
     <div className="px-3">
 
->>>>>>> 333c3f0 (Resolved merge conflicts)
    <motion.section initial={{opaccity:0}}
    animate={{
     opacity:1,
@@ -99,10 +96,7 @@ placeholder="Type your message here"
 
 </div>
    </motion.section>
-<<<<<<< HEAD
-=======
    </div>
->>>>>>> 333c3f0 (Resolved merge conflicts)
   )
 }
 

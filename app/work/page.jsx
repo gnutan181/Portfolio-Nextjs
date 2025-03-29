@@ -63,12 +63,9 @@ const Work = () => {
   }
   
   return ( 
-<<<<<<< HEAD
-=======
     <div className="px-3">
 
      
->>>>>>> 333c3f0 (Resolved merge conflicts)
   <motion.section initial={{opacity:0}} 
   animate={{ opacity : 1,
     transition: {delay : 2.4, duration : 0.4, ease :"easeIn"},}
@@ -163,12 +160,8 @@ const Work = () => {
      
         </div>
     </div>
-<<<<<<< HEAD
-  </motion.section>)
-=======
   </motion.section>
   </div>)
->>>>>>> 333c3f0 (Resolved merge conflicts)
 }
 
 export default Work

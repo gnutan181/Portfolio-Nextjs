@@ -32,22 +32,14 @@ import {motion} from "framer-motion"
 
 const Services = () => {
   return (
-<<<<<<< HEAD
-   <section className="min-h-[80vh] flex flex-col justify-center py-12 xl:py-0" >
-=======
    <section className="min-h-[80vh] flex flex-col justify-center py-12 xl:py-0 px-4" >
->>>>>>> 333c3f0 (Resolved merge conflicts)
     <div className="container mx-auto" >
       <motion.div 
       initial={{opacity:0}}
       animate={{
         opacity:1,
         transition:{
-<<<<<<< HEAD
-          delay:2.4,duration:0.4,ease:"easeIn"
-=======
           delay:2,duration:0.2,ease:"easeIn"
->>>>>>> 333c3f0 (Resolved merge conflicts)
         },
        
       }}
