@@ -3,57 +3,85 @@
 import {motion} from "framer-motion"
 import {Swiper , SwiperSlide} from "swiper/react"
 import "swiper/css"
-import img1 from "@/assets/assets/work/thumb1.png"
-import img2 from "@/assets/assets/work/thumb2.png"
-
-import img3 from "@/assets/assets/work/thumb3.png"
 
 
 import {BsArrowUpRight , BsGithub} from "react-icons/bs"
 import { Tooltip, TooltipContent,TooltipProvider,TooltipTrigger } from "@/components/ui/tooltip"
 import Link from "next/link"
-import Image from "next/image"
+// import Image from "next/image"
 import { useState } from "react"
 import WorkSliderbtns from "@/components/WorkSliderbtns"
+// import dynamic from 'next/dynamic'
+// import { ErrorBoundary, VideoErrorFallback } from "@/components/ErrorBoundary"
+
+// import VideoPlayer from "@/components/Video"
+
 const projects =[
   {
     num:'01',
-    category:'frontend',
-    title: "project 1",
-    description :"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum, similique, nobis amet saepe sapiente sunt quas neque expedita fuga error recusandae commodi iste consectetur magnam assumenda voluptatum? Veritatis, reprehenderit quam!",
-    stack:[
-      {name:"Html 5"}, {name:"Css 5"}, {name:"Javascript"}, {name:"REactjs"}
-    ],
-    image:img1,
-    live:"",
-    github:"",
-  },
-  {
-    num:'02',
-    category:'fullstack',
-    title: "project 2",
-    description :"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum, similique, nobis amet saepe sapiente sunt quas neque expedita fuga error recusandae commodi iste consectetur magnam assumenda voluptatum? Veritatis, reprehenderit quam!",
-    stack:[
-      {name:"Next js"}, {name:"Css 5"}, {name:"Javascript"}, {name:"REactjs"}
-    ],
-    image:img2,
-    live:"",
-    github:"",
-  },{
-    num:'32',
-    category:'frontend',
-    title: "project 3",
-    description :"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum, similique, nobis amet saepe sapiente sunt quas neque expedita fuga error recusandae commodi iste consectetur magnam assumenda voluptatum? Veritatis, reprehenderit quam!",
+    category:'Full Stack development + DevOps',
+    title: "RupayLender – Full-Stack Service Marketplace with Wallet & API Integrations",
+    description :"A multi-service platform offering digital financial services (Loans, Insurance, Credit Cards, CA filing, Travel bookings, etc.) for B2B Vendors, B2C customers and Tellecallers with controlable admin and subadmin panel; built with MERN stack.",
     stack:[
       {name:"Html 5"}, {name:"Css 5"}, {name:"Javascript"}, {name:"Reactjs"}
+      ,{name:"Expressjs"},{name:"MongoDb"},{name:"Nodejs"},{name:"Material UI"},{name:"tailwind"}
+         ,{name:"AWS"}  ,{name:"Nginx"}   ,{name:"Docker"},{name:"Cashfree payment"},{name:"Redis"}
     ],
-    image:img3,
-    live:"",
+   
+    video:"/videos/rupay.mp4",
+    live:"https://www.rupaylender.com",
     github:"",
+  },{
+    num:'02',
+    category:'Full Stack development + Ai Integration',
+    title: "AI-powered Resume Builder, Interview Practice, and Job Market Insights Platform",
+    description :"A full-stack, AI-integrated career development platform built to help users craft ATS-optimized resumes, generate custom cover letters, and prepare for interviews with real-time AI assistance. It also provides up-to-date salary benchmarks and in-demand skill trends tailored to user profiles.",
+    stack:[
+      {name:"Html 5"}, {name:"Css 5"}, {name:"ShadCn"}, {name:"Javascript"}, {name:"Reactjs"},
+        {name:"Nextjs"}, {name:"Clerk Authentication"}, {name:"Prisam"}, {name:"Neon Db"},
+          {name:"Google Gemini Api"}, {name:"INNGEST Cron jobs"},{name:"Vercel"}
+    ],
+   
+    video:'/videos/Ai-carreir-coach.mp4',
+    live:"https://ai-carrrier-coach.vercel.app/",
+    github:"https://github.com/gnutan181/Ai-carrrier-coach",
   },
+  {
+    num:'03',
+    category:'Nextjs + Ai Voice Agent',
+    title: "AI Voice Mock Interviewer",
+    description :"This system leverages the Google Gemini API for dynamic question generation and response analysis, while Vapi.js (Voice Agent) enables realistic voice-based interactions. Firebase handles user authentication and session storage. It simulates real-world behavioral interviews, assessing competencies like leadership and problem-solving, and provides instant AI-generated feedback on structure (STAR method), clarity, and tone.",
+    stack:[
+      {name:"Html 5"}, {name:"Css 5"},{name:"Tailwind"}, {name:"Javascript"}, {name:"Typescript"},{name:"Nextjs"}
+      ,{name:"Google Gemini Api"},{name:"Vapijs - Voice Agent"},{name:"Firebase"},
+         {name:"Vercel"},
+    ],
+    
+    video:'/videos/rupay.mp4',
+    live:"https://prepwise-nu.vercel.app/",
+    github:"https://github.com/gnutan181/prepwise",
+  }
 ]
-const Work = () => {
+// components/ExternalLink.jsx
+const ExternalLink = ({ href, children, className = '' }) => {
+  if (!href) return null;
   
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer nofollow"
+      className={className}
+    >
+      {children}
+    </a>
+  );
+};
+
+
+const Work = () => {
+    const [swiperInstance, setSwiperInstance] = useState(null);
+
   const [project, setProject] = useState(projects[0]);
 
   const handleSlideChange = (swiper)=>{
@@ -77,7 +105,7 @@ const Work = () => {
     <div className="flex flex-col xl:flex-row xl:gap-[30px]">
 
       {/* text */}
-        <div className="w-full xl:w-[60%] xl:h-[460px] flex flex-col xl:justify-between order-2 xl:order-none">
+        <div className="w-full xl:w-[40%] xl:h-[460px] flex flex-col xl:justify-between order-2 xl:order-none">
 
             <div className="flex flex-col gap-[30px] h-[50%]">
         {/*  num */}
@@ -89,53 +117,67 @@ const Work = () => {
         {/* description */}
         <p className="text-white/60 ">{project.description}</p>
 
-        <ul className="flex gap-4">
-          {project.stack.map((item,index)=>{
-            return <li key={index} className="text-xl text-accent"> {item.name}
-            {/* remove the last commen */}
-            {index !== project.stack.length -1 && ","}</li>
-          })}
-        </ul>
+        <ul className="flex flex-wrap gap-2 max-w-[90%] overflow-x-auto pb-27 no-scrollbar">
+  {project.stack.map((item,index)=>{
+    return (
+      <li 
+        key={index} 
+        className="text-sm text-accent bg-white/10 px-3 py-1 rounded-full whitespace-nowrap"
+      >
+        {item.name}
+      </li>
+    )
+  })}
+</ul>
         {/* border */}
         <div className="border border-white/20">
         </div>
 
     
       {/*link  buttons */}
+   
       <div className="flex items-center gap-4">
-        {/* github project button  */}
-        <Link href={project.live}>
-        <TooltipProvider delayDuration={100}>
-          <Tooltip>
-          <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
+  {/* Live project button */}
+  <TooltipProvider delayDuration={100}>
+    <Tooltip>
+      <TooltipTrigger>
+        <ExternalLink
+          href={project.live}
+          className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group"
+        >
           <BsArrowUpRight className="text-white text-3xl group-hover:text-accent" />
-          </TooltipTrigger>
-           <TooltipContent>
-            <p>Live project</p>
-           </TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
-        </Link>
-        <Link href={project.github}>
-        <TooltipProvider delayDuration={100}>
-          <Tooltip>
-          <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
+        </ExternalLink>
+      </TooltipTrigger>
+      <TooltipContent>
+        <p>Live project</p>
+      </TooltipContent>
+    </Tooltip>
+  </TooltipProvider>
+
+  {/* GitHub button */}
+  <TooltipProvider delayDuration={100}>
+    <Tooltip>
+      <TooltipTrigger>
+        <ExternalLink
+          href={project.github}
+          className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group"
+        >
           <BsGithub className="text-white text-3xl group-hover:text-accent" />
-          </TooltipTrigger>
-           <TooltipContent>
-            <p>Github repository</p>
-           </TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
-        </Link>
-      </div>
+        </ExternalLink>
+      </TooltipTrigger>
+      <TooltipContent>
+        <p>GitHub repository</p>
+      </TooltipContent>
+    </Tooltip>
+  </TooltipProvider>
+</div>
              </div> 
               </div>
 {/* Swipper */}
-             <div className="w-full xl:w-[40%]">
+             <div className="w-full xl:w-[60%] relative">
       <Swiper spaceBetween={30} slidesPerView={1} className="xl:h-[520px] mb-12" 
       onSlideChange={(swiper)=>handleSlideChange(swiper)}
-      onSwiper={(swiper) => console.log(swiper)}
+      onSwiper={(swiper) => setSwiperInstance(swiper)}
 
       >
         {projects.map((project,index)=>{
@@ -143,19 +185,47 @@ const Work = () => {
              <SwiperSlide key={index} className="w-full" >
             <div className="h-[460px] relative group flex justify-center items-center bg-pink-50/20">
             {/* overlay */}
-            <div className="absolute top-0 bottom-0 w-full h-full bg-black/10 z-10"></div>
-            {/* Image */}
-            <div className="relative w-full h-full">
-              <Image src={project.image} fill className="object-cover" alt="project_image"></Image>
-            </div>
+            <div className="absolute top-0 bottom-0 w-full h-full bg-black/10 z-[1] pointer-events-none"></div>
+        
+            {/* <div className="relative w-full h-full z-[2]"> */}
+              <div className="relative w-full pt-[56.25%]"> 
+                {/* 16:9 aspect ratio */}
+ 
+      <video
+        src={project.video}
+        // className="object-cover w-full h-full"
+        className="absolute top-0 left-0 w-full h-full object-fit"
+        autoPlay
+     
+        muted = "true"
+        playsInline
+        controls
+         controlsList="nodownload" // Prevents download button
+        style={{ 
+          marginTop: '60px',
+          cursor: 'pointer',
+          zIndex: 2 
+        }}
+      >Your browser does not support the video tag.</video>
+   
+
+    </div>
             </div>
             
           </SwiperSlide>)
           // {project}
         })}
-        <WorkSliderbtns containerStyles="flex gap-2 absolute right-0 bottom-[calc(50%_-_22px)] xl:bottom-0 z-20 w-full justify-between xl:w-max
-        xl:justify-none" btnStyles="bg-accent hover:bg-accent-hover text-primary text-[22px] w-[44px] h-[44px] flex justify-center items-center transition-all"/>
       </Swiper>
+        {/* <WorkSliderbtns containerStyles="flex gap-2 absolute top-100 
+         right-100 z-20 w-full justify-between xl:w-max
+        xl:justify-none" btnStyles="bg-accent hover:bg-accent-hover text-primary text-[22px] w-[44px] h-[44px] flex justify-center items-center transition-all"/> */}
+          <div className="mt-6 flex justify-center">
+      <WorkSliderbtns 
+        containerStyles="flex gap-2 items-center justify-center" 
+        btnStyles="bg-accent hover:bg-accent-hover text-primary text-[22px] w-[44px] h-[44px] flex justify-center items-center transition-all"
+        swiper={swiperInstance}
+      />
+    </div>
                </div>
      
         </div>

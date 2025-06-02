@@ -1,6 +1,6 @@
 "use client"
 
-import {FaHtml5,FaCss3,FaNodeJs,FaReact,FaJs} from "react-icons/fa"
+import {FaHtml5,FaCss3,FaNodeJs,FaReact,FaJs, FaAws} from "react-icons/fa"
 import {SiTailwindcss ,SiNextdotjs} from "react-icons/si";
 import {Tabs,TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs"
 
@@ -71,11 +71,11 @@ const skills = {
   skillList:[
     {
       icon : <FaHtml5 />,
-      name :"html 5"
+      name :"HTML5"
     },
       {
       icon : <FaCss3 />,
-      name :"Css3"
+      name :"CSS3"
     },  {
       icon : <FaJs />,
       name :"JavaScript"
@@ -90,16 +90,129 @@ const skills = {
       name :"Next js"
     }, {
       icon : <FaNodeJs />,
-      name :"html t"
+      name :"Node Js"
     }, 
+    // {
+    //   icon : <FaNodeJs />,
+    //   name :"Express Js"
+    // }, 
+    // {
+    //   icon : <FontAwesomeIcon icon="fa-solid fa-database" />,
+    //   name :"MongoDB"
+    // },
+    {
+      icon : <FaAws />,
+      name :"AWS"
+    },  
+    // {
+    //   icon : <FaNodeJs />,
+    //   name :"Nginx"
+    // },  
+    // {
+    //   icon : <FaNodeJs />,
+    //   name :"Docker"
+    // },  
+    // {
+    //   icon : <FaNodeJs />,
+    //   name :"C++"
+    // },  
+    // {
+    //   icon : <FaNodeJs />,
+    //   name :"Prisma Orm"
+    // }, 
+    // {
+    //   icon : <FaNodeJs />,
+    //   name :"SQL"
+    // }, 
   ]
 }
+
 import {Tooltip,TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import {motion} from "framer-motion"
+const skillsData = [
+  {
+    title: "Frontend Development",
+    items: [
+      {
+        name: "React.js / Next.js",
+        description: "Built AI Career Coach with SSR, dynamic routing, and 40% faster page loads via code-splitting."
+      },
+      {
+        name: "Tailwind CSS / ShadCn UI",
+        description: "Shipped responsive UIs with 90% Lighthouse scores (RuPayLender) and WCAG-compliant themes."
+      },
+      {
+        name: "State Management",
+        description: "Context API + Zod for form validation, reducing user errors by 30% in eCommerce apps."
+      },
+      {
+        name: "Data Visualization",
+        description: "Recharts for interactive dashboards (salary trends, loan analytics)."
+      }
+    ]
+  },
+  {
+    title: "Backend Development",
+    items: [
+      {
+        name: "Node.js / Express",
+        description: "Scaled APIs handling 1k+ RPM (RuPayLender) with 200ms latency via Redis caching."
+      },
+      {
+        name: "Databases",
+        description: "MongoDB (MERN), PostgreSQL (Prisma), and query optimization (35% faster searches)."
+      },
+      {
+        name: "Authentication",
+        description: "Clerk, JWT, and OAuth2 for secure role-based access (0 vulnerabilities in audits)."
+      },
+      {
+        name: "DevOps",
+        description: "Dockerized apps, CI/CD pipelines (Vercel), and load testing with k6."
+      }
+    ]
+  },
+  {
+    title: "AI & Performance Engineering",
+    items: [
+      {
+        name: "AI Integrations",
+        description: "Google Gemini for resume builders (95% accuracy) and real-time code analysis."
+      },
+      {
+        name: "WebSockets",
+        description: "Real-time chat/collaboration (Socket.io + Redis pub/sub)."
+      },
+      {
+        name: "Performance",
+        description: "Achieved 40% faster API responses (Redis) and 50% smaller bundles (lazy loading)."
+      }
+    ]
+  },
+  {
+    title: "Security & Scalability",
+    items: [
+      {
+        name: "OWASP Compliance",
+        description: "Automated scans (ZAP) and Helmet.js, reducing risks by 60%."
+      },
+      {
+        name: "Scalable Architectures",
+        description: "Clustering, worker threads, and PDF stream processing (500MB+ files)."
+      },
+      {
+        name: "Payment Systems",
+        description: "CashFree integrations with PCI-DSS compliance."
+      }
+    ]
+  }
+];
+
+
  function Resume() {
   return (
     <motion.div initial={{opacity:0}} animate={{opacity:1,
@@ -121,20 +234,20 @@ import {motion} from "framer-motion"
              <TabsTrigger value="about" className="hover:text-accent">About Me</TabsTrigger> 
           </TabsList>
           <div className="min-h-[70vh] w-full">
-            
-          <TabsContent value="experience" className="w-full">
+            {/*  experience */}
+          <TabsContent value="experience" className="w-full sm:mx-5">
             <div className="flex flex-col gap-[30px] text-center xl:text-left">
 
               <h3 className="text-4xl font-bold">
                 {experience.title}
               </h3>
-              <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
+              {/* <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
                 {experience.description}
-              </p>
+              </p> */}
               <ScrollArea className="h-[400px]">
                 <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
                   {experience.items.map((item,index)=>{
-return <li key={index} className="bg-[#232329]
+return <li key={index} className="bg-[#232329] mx-auto sm:mx-5
 h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1
 ">
   <span className="text-accent lg:mx-4">{item.duration}</span>
@@ -159,9 +272,9 @@ h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:ite
               <h3 className="text-4xl font-bold">
                 {education.title}
               </h3>
-              <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
+              {/* <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
                 {education.description}
-              </p>
+              </p> */}
               <ScrollArea className="h-[400px]">
                 <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
                   {education.items.map((item,index)=>{
@@ -184,7 +297,7 @@ h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:ite
             </div>
           </TabsContent>
           {/* skills */}
-          <TabsContent value="skills" className="w-full">
+          {/* <TabsContent value="skills" className="w-full">
        
              <div className="flex flex-col gap-[30px] sm:px-2"
              >
@@ -211,13 +324,55 @@ return <li key={index}>
               })}
              </ul>
              </div>
-          </TabsContent>
+          </TabsContent> */}
+          <TabsContent value="skills" className="w-full">
+  <div className="flex flex-col gap-[30px] xs:text-center ">
+    <h3 className="text-4xl font-bold mx-4 xl:mx-0" >{skills.title}</h3>
+    {/* <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">{skills.description}</p> */}
+    <div className="text-white/100 mx-4 xl:mx-0">
+      {skillsData.map((category, index) => (
+        <div key={index}>
+          <h3 className="text-accent text-xl">{category.title}</h3>
+          {category.items.map((item, itemIndex) => (
+            <div key={itemIndex}>
+              <span>{item.name}: </span>
+              <span className="text-gray-400">{item.description}</span>
+            </div>
+          ))}
+        </div>
+      ))}
+    </div>
+    <ul className="grid grid-cols-2  sm:grid-cols-3 sm:mx-3 mx-4 xl:mx-0 gap-5 md:grid-cols-4 xl:gap-[30px]">
+      {skills.skillList.map((skill, index) => (
+        <li key={index}>
+          <TooltipProvider delayDuration={100} skipDelayDuration={500}>
+            <Tooltip>
+              <TooltipTrigger 
+                className="w-full h-[150px] bg-[#232329] rounded-xl flex justify-center items-center group
+                           active:scale-95 active:bg-[#2d2d35] transition-all duration-100"
+                style={{ minWidth: '48px', minHeight: '48px' }}
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div className="text-6xl group-hover:text-accent transition-all duration-300">
+                  {skill.icon}
+                </div>
+              </TooltipTrigger>
+              <TooltipContent side="top" align="center">
+                <p className="capitalize">{skill.name}</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+        </li>
+      ))}
+    </ul>
+  </div>
+</TabsContent>
 {/* about */}
           <TabsContent value="about" className="w-full text-center xl:text-left">
             <div className="flex flex-col gap-[30px]">
 
               <h3 className="text-4xl font-bold">{about.title}</h3>
-              <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">{about.description}</p>
+              {/* <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">{about.description}</p> */}
               <ul className="grid grid-cols-1 xl:grid-cols-2 gap-y-6 max-w-[620px] mx-auto xl:mx-0">
                 {about.info.map((item,index)=>{
                   return (

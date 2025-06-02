@@ -93,7 +93,6 @@ placeholder="Type your message here"
       </ul>
     </div>
   </div>
-
 </div>
    </motion.section>
    </div>
