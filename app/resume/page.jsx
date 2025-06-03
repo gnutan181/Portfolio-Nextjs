@@ -220,20 +220,28 @@ const skillsData = [
         ease:"easeIn"
       }
     }}
-    className="min-h-[80vh] flex items-center justify-center py-12 xl:py-0" 
+    // className="min-h-[80vh] flex items-center justify-center py-12 xl:py-0" 
+          className="min-h-screen w-full overflow-x-hidden px-4 py-12 xl:py-0"
+
     >
-      <div className="container mx-auto">
+      {/* <div className="container mx-auto"> */}
+            <div className="container mx-auto max-w-[1200px]">
+
         <Tabs
         defaultValue="experience"
         className=" flex flex-col xl:flex-row gap-[60px] "
         >
-          <TabsList className="flex flex-col w-full max-w-[380px] mx-auto xl:mx-0 gap-6 ">
+          {/* <TabsList className="flex flex-col w-full max-w-[380px] mx-auto xl:mx-0 gap-6 "> */}
+                    <TabsList className="flex flex-col w-full xl:w-[280px] shrink-0 mx-auto xl:mx-0 gap-6">
+
             <TabsTrigger value="experience" className="hover:text-accent">Experience</TabsTrigger>
             <TabsTrigger value="education" className="hover:text-accent">Education</TabsTrigger> 
             <TabsTrigger value="skills" className="hover:text-accent">Skills</TabsTrigger>
              <TabsTrigger value="about" className="hover:text-accent">About Me</TabsTrigger> 
           </TabsList>
-          <div className="min-h-[70vh] w-full">
+          {/* <div className="min-h-[70vh] w-full"> */}
+                    <div className="flex-1 min-h-[70vh] w-full max-w-full overflow-x-hidden">
+
             {/*  experience */}
           <TabsContent value="experience" className="w-full sm:mx-5">
             <div className="flex flex-col gap-[30px] text-center xl:text-left">
@@ -296,35 +304,7 @@ h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:ite
               </ScrollArea>
             </div>
           </TabsContent>
-          {/* skills */}
-          {/* <TabsContent value="skills" className="w-full">
-       
-             <div className="flex flex-col gap-[30px] sm:px-2"
-             >
-             <h3 className="text-4xl font-bold sm:mx-2">{skills.title}</h3>
-              
-             <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">{skills.description}</p>
-             <ul className="grid grid-cols-2 sm:grid-cols-3 sm:mx-3 md:grid-cols-4 xl:gap-[30px] " >
-              {skills.skillList.map((skill,index)=>{
-return <li key={index}>
-  <TooltipProvider delayDuration={100} >
-<Tooltip>
-  <TooltipTrigger className="w-full h-[150px] bg-[#232329] rounded-xl flex justify-center items-center group" onClick={(e) => e.stopPropagation()}>
-    <div className="text-6xl group-hover:text-accent transition-all duration-300">{skill.icon}</div>
-  </TooltipTrigger>
-  <TooltipContent>
-    <p className="capitalize">
-  {skill.name}
-    </p>
-  </TooltipContent>
-</Tooltip>
-  </TooltipProvider>
-
-  </li>
-              })}
-             </ul>
-             </div>
-          </TabsContent> */}
+      
           <TabsContent value="skills" className="w-full">
   <div className="flex flex-col gap-[30px] xs:text-center ">
     <h3 className="text-4xl font-bold mx-4 xl:mx-0" >{skills.title}</h3>
