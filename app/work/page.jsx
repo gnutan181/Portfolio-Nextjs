@@ -7,14 +7,10 @@ import "swiper/css"
 
 import {BsArrowUpRight , BsGithub} from "react-icons/bs"
 import { Tooltip, TooltipContent,TooltipProvider,TooltipTrigger } from "@/components/ui/tooltip"
-import Link from "next/link"
-// import Image from "next/image"
+
 import { useState } from "react"
 import WorkSliderbtns from "@/components/WorkSliderbtns"
-// import dynamic from 'next/dynamic'
-// import { ErrorBoundary, VideoErrorFallback } from "@/components/ErrorBoundary"
 
-// import VideoPlayer from "@/components/Video"
 
 const projects =[
   {
@@ -216,9 +212,7 @@ const Work = () => {
           // {project}
         })}
       </Swiper>
-        {/* <WorkSliderbtns containerStyles="flex gap-2 absolute top-100 
-         right-100 z-20 w-full justify-between xl:w-max
-        xl:justify-none" btnStyles="bg-accent hover:bg-accent-hover text-primary text-[22px] w-[44px] h-[44px] flex justify-center items-center transition-all"/> */}
+ 
           <div className="mt-6 flex justify-center">
       <WorkSliderbtns 
         containerStyles="flex gap-2 items-center justify-center" 
