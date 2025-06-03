@@ -172,7 +172,9 @@ const Work = () => {
               </div>
 {/* Swipper */}
              <div className="w-full xl:w-[60%] relative">
-      <Swiper spaceBetween={30} slidesPerView={1} className="xl:h-[520px] mb-12" 
+      <Swiper spaceBetween={30} slidesPerView={1} 
+      // className="xl:h-auto mb-12 "
+         className="xl:h-auto aspect-video" 
       onSlideChange={(swiper)=>handleSlideChange(swiper)}
       onSwiper={(swiper) => setSwiperInstance(swiper)}
 
@@ -180,12 +182,15 @@ const Work = () => {
         {projects.map((project,index)=>{
           return (
              <SwiperSlide key={index} className="w-full" >
-            <div className="h-[550px] relative group flex justify-center items-center bg-pink-50/20">
+            {/* <div className="h-[550px] relative group flex justify-center items-center bg-pink-50/20"> */}
+                      <div className="relative aspect-video w-full"> {/* Updated container */}
+
             {/* overlay */}
-            <div className="absolute top-0 bottom-0 w-full h-full bg-black/10 z-[1] pointer-events-none"></div>
+            {/* <div className="absolute top-0 bottom-0 w-full h-full bg-black/10 z-[1] pointer-events-none"></div> */}
         
-            {/* <div className="relative w-full h-full z-[2]"> */}
-            <div className="relative w-full pt-[56.25%]">
+               <div className="absolute inset-0 bg-black/10 z-[1] pointer-events-none"></div>
+
+             <div className="relative w-full h-full">
   <YouTubePlayer videoId={project.video} />
 </div>
             </div>
