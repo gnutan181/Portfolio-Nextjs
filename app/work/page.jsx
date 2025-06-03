@@ -10,6 +10,7 @@ import { Tooltip, TooltipContent,TooltipProvider,TooltipTrigger } from "@/compon
 
 import { useState } from "react"
 import WorkSliderbtns from "@/components/WorkSliderbtns"
+import YouTubePlayer from "@/components/YouTubePlayer"
 
 
 const projects =[
@@ -24,7 +25,7 @@ const projects =[
          ,{name:"AWS"}  ,{name:"Nginx"}   ,{name:"Docker"},{name:"Cashfree payment"},{name:"Redis"}
     ],
    
-    video:"/videos/rupay.mp4",
+    video:"pe6kO-ftr4k",
     live:"https://www.rupaylender.com",
     github:"",
   },{
@@ -38,7 +39,7 @@ const projects =[
           {name:"Google Gemini Api"}, {name:"INNGEST Cron jobs"},{name:"Vercel"}
     ],
    
-    video:'/videos/Ai-carreir-coach.mp4',
+    video:'UWGJ7HJr-U0',
     live:"https://ai-carrrier-coach.vercel.app/",
     github:"https://github.com/gnutan181/Ai-carrrier-coach",
   },
@@ -46,7 +47,7 @@ const projects =[
     num:'03',
     category:'Nextjs + Ai Voice Agent',
     title: "AI Voice Mock Interviewer",
-    description :"This system leverages the Google Gemini API for dynamic question generation and response analysis, while Vapi.js (Voice Agent) enables realistic voice-based interactions. Firebase handles user authentication and session storage. It simulates real-world behavioral interviews, assessing competencies like leadership and problem-solving, and provides instant AI-generated feedback on structure (STAR method), clarity, and tone.",
+    description :"This Web-Application leverages the Google Gemini API for dynamic question generation and response analysis, while Vapi.js (Voice Agent) enables realistic voice-based interactions. Firebase handles user authentication and session storage. It simulates real-world behavioral interviews, assessing competencies like leadership and problem-solving, and provides instant AI-generated feedback on structure (STAR method), clarity, and tone.",
     stack:[
       {name:"Html 5"}, {name:"Css 5"},{name:"Tailwind"}, {name:"Javascript"}, {name:"Typescript"},{name:"Nextjs"}
       ,{name:"Google Gemini Api"},{name:"Vapijs - Voice Agent"},{name:"Firebase"},
@@ -179,33 +180,14 @@ const Work = () => {
         {projects.map((project,index)=>{
           return (
              <SwiperSlide key={index} className="w-full" >
-            <div className="h-[460px] relative group flex justify-center items-center bg-pink-50/20">
+            <div className="h-[550px] relative group flex justify-center items-center bg-pink-50/20">
             {/* overlay */}
             <div className="absolute top-0 bottom-0 w-full h-full bg-black/10 z-[1] pointer-events-none"></div>
         
             {/* <div className="relative w-full h-full z-[2]"> */}
-              <div className="relative w-full pt-[56.25%]"> 
-                {/* 16:9 aspect ratio */}
- 
-      <video
-        src={project.video}
-        // className="object-cover w-full h-full"
-        className="absolute top-0 left-0 w-full h-full object-fit"
-        autoPlay
-     
-        muted = "true"
-        playsInline
-        controls
-         controlsList="nodownload" // Prevents download button
-        style={{ 
-          marginTop: '60px',
-          cursor: 'pointer',
-          zIndex: 2 
-        }}
-      >Your browser does not support the video tag.</video>
-   
-
-    </div>
+            <div className="relative w-full pt-[56.25%]">
+  <YouTubePlayer videoId={project.video} />
+</div>
             </div>
             
           </SwiperSlide>)
