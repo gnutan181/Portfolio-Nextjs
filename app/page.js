@@ -21,7 +21,7 @@ export default function Home() {
       className='uppercase flex items-center gap-2'
       >
         <span>
-          <Link href="https://drive.google.com/file/d/1PbFBgzlWYtw16WhtGUbw3Wh23LlXFQcq/view?usp=drivesdk" target="_blank" download>
+          <Link href="https://drive.google.com/file/d/1OQlJsjfIyG1f2vZ3AoTPEooGln-6qStE/view?usp=drive_link" target="_blank" download>
           Download Cv
           </Link>
           </span>
