@@ -11,6 +11,7 @@ const projects = [
     title: "PAPEER | Agentic Research Assistant",
     description: "A session-isolated research assistant for PDFs, ArXiv papers, webpages and text sources. It combines dense and BM25 retrieval, RRF fusion, cross-encoder reranking, parent-page context and citations with corrective routing, query rewriting, Tavily fallback and evidence-based abstention.",
     stack: ["Python", "LangGraph", "Qdrant", "BM25", "RRF", "Docling", "Portkey", "DeepEval"],
+    live: "https://papeer.streamlit.app",
     github: "https://github.com/gnutan181/Papeer-Ai-Research-Paper-Assistant",
   },
   {
